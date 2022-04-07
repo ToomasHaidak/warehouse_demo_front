@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import Business from '../views/BusinessView.vue'
 import Admin from '../views/AdminView.vue'
 
 Vue.use(VueRouter)
@@ -20,6 +21,11 @@ const routes = [
     component: function () {
       return import(/* webpackChunkName: "about" */ '../views/MainView.vue')
     }
+  },
+  {
+    path: '/business',
+    name: 'BusinessView',
+    component: Business
   },
   {
     path: '/admin',
