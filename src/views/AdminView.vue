@@ -1,19 +1,20 @@
 <template>
   <div class="home">
-    <p>This is admin view</p>
+    <h1>See on administraatori vaade</h1>
+    <button v-on:click="logOut">Logi välja</button><br><br><br>
 
     <div id="userTabel">
       <table v-show="fullDataTable.length > 0">
         <tr>
-          <th>User ID</th>
-          <th>User name</th>
-          <th>User type</th>
-          <th>Item count</th>
-          <th>Free item limit</th>
-          <th>Nr of items exceeding limit</th>
-          <th>Amount to pay</th>
-          <th>Number of slots</th>
-          <th>Total item weight</th>
+          <th>Kasutaja ID</th>
+          <th>Kasutaja nimi</th>
+          <th>Kasutaja liik</th>
+          <th>Asjade arv</th>
+          <th>Tasuta asjade limiit</th>
+          <th>Limiiti ületavate asjade arv</th>
+          <th>Maksmisele kuuluv summa</th>
+          <th>Laoruumide arv</th>
+          <th>Asjade kogukaal</th>
         </tr>
         <tr v-for="row in fullDataTable">
           <td>{{ row.userID }}</td>
@@ -38,7 +39,7 @@
       Valitud on: {{selectedBusinessUser}}
       <br><br>
       <div id="businessUserChangeSetting" v-show="selectedBusinessUser">
-        <input v-model="maxFreeItems" placeholder="Sisesta tasuta asjade max">
+        <input v-model="maxFreeItems" placeholder="Sisesta tasuta asjade limiit">
         <button v-on:click="submitBusinessUserChanges">Sisesta</button>
       </div>
       <h1>Muuda uue kasutaja vaikesätteid</h1>
@@ -121,6 +122,11 @@ export default {
           }).catch((error) => {
         alert("Cant load data. No connection to the server")
       })
+    },
+    logOut() {
+      localStorage.removeItem('user-token')
+      localStorage.removeItem('user-Name')
+      this.$router.push('/')
     }
 
   },

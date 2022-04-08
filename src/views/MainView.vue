@@ -4,26 +4,29 @@
     <h1> Tere {{storedUserName}}. See on sinu isiklik lao vaade.</h1>
     Oma ettevõtte lao vaatamiseks logi välja ja sisene ärikliendina.
     <button v-on:click="logOut">Logi välja</button>
-    <br>
+
+    <br><br><br>
     <table>
       <thead>
       <tr>
         <th>ID</th>
-        <th>Name</th>
-        <th>Email</th>
+        <th>Lao nimi</th>
       </tr>
       </thead>
       <tbody>
       <tr v-for="user in users" @click="selectRow(user.nodeName)" :key="user.nodeName" :class="{'highlight': (user.nodeName == selectedUser)}">
         <td>{{ user.nodeID }}</td>
         <td>{{ user.nodeName }}</td>
-        <td>{{ user.parentOf }}</td>
       </tr>
       </tbody>
     </table>
-    Valitud: {{selectedUser}}
+    <TableComponent v-bind:users="users" v-bind:warehouseName="selectedUser"></TableComponent>
 
-    <TableComponent v-bind:users="users"></TableComponent>
+    <div>
+    Valitud: {{selectedUser}}
+    </div>
+
+
 
     <div class="logIn">
       <h1>Registreeri ärikasutaja</h1>
@@ -80,7 +83,7 @@ export default {
 
 <style>
 .highlight {
-  background-color: red;
+  background-color: grey;
 }
 tr:hover{
   cursor: pointer;

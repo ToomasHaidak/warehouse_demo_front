@@ -4,15 +4,13 @@
     <thead>
     <tr>
       <th>ID</th>
-      <th>Name</th>
-      <th>Email</th>
+      <th>{{ warehouseName }}</th>
     </tr>
     </thead>
     <tbody>
     <tr v-for="user in users" @click="selectRow(user.nodeName)" :key="user.nodeName" :class="{'highlight': (user.nodeName == selectedUser)}">
       <td>{{ user.nodeID }}</td>
       <td>{{ user.nodeName }}</td>
-      <td>{{ user.parentOf }}</td>
     </tr>
     </tbody>
   </table>
@@ -21,7 +19,7 @@
 
 <script>
 export default {
-  props: ['users'],
+  props: ['users', 'warehouseName'],
   data() {
     return {
 
@@ -32,7 +30,7 @@ export default {
 
 <style>
 .highlight {
-  background-color: red;
+  background-color: grey;
 }
 tr:hover{
   cursor: pointer;
