@@ -57,7 +57,7 @@ export default {
       this.selectedUser = user;
     },
     registerBusinessUser() {
-      this.$http.put("/registerUser/" + this.newCompanyName + "/none/business/" + this.storedUserName)
+      this.$http.put("/registerUser/" + this.newCompanyName + "/none/Business/" + this.storedUserName)
           .then(response => {
           }).catch((error) => {
         alert("Cant load data. No connection to the server")

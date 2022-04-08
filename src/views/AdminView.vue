@@ -12,7 +12,7 @@
           <th>Asjade arv</th>
           <th>Tasuta asjade limiit</th>
           <th>Limiiti ületavate asjade arv</th>
-          <th>Maksmisele kuuluv summa</th>
+          <th>Maksmisele kuuluv summa (EUR)</th>
           <th>Laoruumide arv</th>
           <th>Asjade kogukaal</th>
         </tr>
