@@ -42,7 +42,7 @@
 import TableComponent from "@/components/TableComponent";
 
 export default {
-  name: 'UpdateWorkshopData',
+  name: 'mainView',
   components: {TableComponent},
   data: function () {
     return {
